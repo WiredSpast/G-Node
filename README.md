@@ -8,7 +8,7 @@ $ npm install gnode-api
 ```
 Using yarn:
 ```cmd
-$ yarn install gnode-api
+$ yarn add gnode-api
 ```
 
 ## How to run selfmade extension

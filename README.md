@@ -22,7 +22,7 @@ $ node extension.js -p 9092
 
 ## Example
 ```js
-const { Extension, HPacket, HDirection } = require('g-node-api');
+const { Extension, HPacket, HDirection } = require('gnode-api');
 
 // Use package.json as extensionInfo or create an object including 'name', 'description', 'version' and 'author'
 let extensionInfo = require('./package.json');

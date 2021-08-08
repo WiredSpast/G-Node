@@ -4,7 +4,11 @@ Node.js [G-Earth](https://github.com/sirjonasxx/G-Earth) extension API
 ## How to install
 Using npm:
 ```cmd
-$ npm install g-node-api
+$ npm install gnode-api
+```
+Using yarn:
+```cmd
+$ yarn install gnode-api
 ```
 
 ## How to run selfmade extension

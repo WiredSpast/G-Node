@@ -1,0 +1,19 @@
+{
+  "name": "g-node",
+  "version": "0.0.1",
+  "description": "Node.js G-Earth extension API",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "node test/test.js -p 9092"
+  },
+  "workspaces": [
+    "./test/*"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^16.4.13"
+  }
+}

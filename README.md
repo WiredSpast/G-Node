@@ -113,7 +113,7 @@ let bubble = hPacket.readInteger();
 #### Reading a structure into an array
 ```js
 let hPacket = hMessage.getPacket(); // Example: {in:Chat}{i:1}{s:"Hello"}{i:0}{i:1}{i:0}{i:0}
-let vars = hPacket.read('isiiii');
+let vars = hPacket.read('iSiiii');
 let userIndex = vars[0];
 let message = vars[1];
 let bubble = vars[3];

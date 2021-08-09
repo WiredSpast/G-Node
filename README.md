@@ -131,7 +131,7 @@ hPacket.appendInteger(0);       // {in:Chat}{i:1}{s:"Hello"}{i:0}{i:1}{i:0}{i:0}
 ```
 #### Creating packet from header Id
 ```js
-let hPacket = new HPacket(1918, HDirection.TOCLIENT) // Example: {l}{h:1918}
+let hPacket = new HPacket(1918) // Example: {l}{h:1918}
     .appendInteger(1)       // {l}{h:1918}{i:1}
     .appendString('Hello')  // {l}{h:1918}{i:1}{s:"Hello"}
     .appendInteger(0)       // {l}{h:1918}{i:1}{s:"Hello"}{i:0}

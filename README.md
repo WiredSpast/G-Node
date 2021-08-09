@@ -67,12 +67,12 @@ ext.on('click', () => {
 ### Packet intercepting
 #### Intercept all packets in one direction
 ```js
-ext.intercept(HDirection.TOCLIENT, 'Ping', hMessage => {
+ext.interceptAll(HDirection.TOCLIENT, hMessage => {
   let hPacket = hMessage.getPacket();
   ...
 });
 
-ext.intercept(HDirection.TOSERVER, 'Pong', hMessage => {
+ext.interceptAll(HDirection.TOSERVER, hMessage => {
   let hPacket = hMessage.getPacket();
   ...
 });

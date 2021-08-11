@@ -67,12 +67,12 @@ ext.on('click', () => {
 ### Packet intercepting
 #### Intercept all packets in one direction
 ```js
-ext.intercept(HDirection.TOCLIENT, 'Ping', hMessage => {
+ext.interceptAll(HDirection.TOCLIENT, hMessage => {
   let hPacket = hMessage.getPacket();
   ...
 });
 
-ext.intercept(HDirection.TOSERVER, 'Pong', hMessage => {
+ext.interceptAll(HDirection.TOSERVER, hMessage => {
   let hPacket = hMessage.getPacket();
   ...
 });
@@ -113,7 +113,7 @@ let bubble = hPacket.readInteger();
 #### Reading a structure into an array
 ```js
 let hPacket = hMessage.getPacket(); // Example: {in:Chat}{i:1}{s:"Hello"}{i:0}{i:1}{i:0}{i:0}
-let vars = hPacket.read('isiiii');
+let vars = hPacket.read('iSiiii');
 let userIndex = vars[0];
 let message = vars[1];
 let bubble = vars[3];
@@ -131,7 +131,7 @@ hPacket.appendInteger(0);       // {in:Chat}{i:1}{s:"Hello"}{i:0}{i:1}{i:0}{i:0}
 ```
 #### Creating packet from header Id
 ```js
-let hPacket = new HPacket(1918, HDirection.TOCLIENT) // Example: {l}{h:1918}
+let hPacket = new HPacket(1918) // Example: {l}{h:1918}
     .appendInteger(1)       // {l}{h:1918}{i:1}
     .appendString('Hello')  // {l}{h:1918}{i:1}{s:"Hello"}
     .appendInteger(0)       // {l}{h:1918}{i:1}{s:"Hello"}{i:0}

@@ -12,7 +12,7 @@ export class HUserProfile {
     /**
      * Get username
      */
-    getUserName(): string;
+    getUsername(): string;
 
     /**
      * Get user motto

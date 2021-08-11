@@ -1,4 +1,4 @@
-let { HPacket, HDirection, HMessage, Extension} = require('../index');
+let { HPacket, HDirection, HMessage, Extension, HInventoryItem, HFloorItem, HWallItem, HUserProfile, HEntity} = require('../index');
 
 let extensionInfo = require('./package.json');
 /* Alternative:
@@ -14,33 +14,10 @@ let ext = new Extension(extensionInfo);
 ext.run();
 
 ext.on('start', () => {
-    ext.interceptByNameOrHash(HDirection.TOCLIENT, 'Chat', hMessage => {
-        let inPacket = hMessage.getPacket();
-
-        /* Alternative
-        let userIndex = inPacket.readInteger();
-        let msg = inPacket.readString();
-        inPacket.readInteger();
-        let bubble = inPacket.readInteger();
-        */
-        let inVars = inPacket.read('iSiiii');
-        let userIndex = inVars[0];
-        let msg = inVars[1];
-        let bubble = inVars[3];
-
-        let outPacket = new HPacket('Whisper', HDirection.TOCLIENT)
-            .appendInt(userIndex)
-            .appendString(msg)
-            .appendInt(0)
-            .appendInt(bubble)
-            .appendInt(0)
-            .appendInt(0);
-        /* Alternative
-        let outPacket = new HPacket('{in:Whisper}{i:' + userIndex + '}{s:"' + msg + '"}{i:0}{i:' + bubble + '}{i:0}{i:0}')
-         */
-        ext.sendToClient(outPacket);
+    ext.interceptByNameOrHash(HDirection.TOCLIENT, 'Users', hMessage => {
+        let users = HEntity.parse(hMessage.getPacket());
+        for(let user of users) {
+            console.log(user.getName());
+        }
     });
 });
-
-ext.interceptAll(HDirection.TOSERVER, hMessage => console.log("out " + hMessage.getPacket().toString()));
-ext.interceptAll(HDirection.TOCLIENT, hMessage => console.log("in  " + hMessage.getPacket().toString()));

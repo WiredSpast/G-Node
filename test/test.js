@@ -17,16 +17,16 @@ ext.on('start', () => {
     ext.interceptByNameOrHash(HDirection.TOCLIENT, 'Chat', hMessage => {
         let inPacket = hMessage.getPacket();
 
+        /* Alternative
         let userIndex = inPacket.readInteger();
         let msg = inPacket.readString();
         inPacket.readInteger();
         let bubble = inPacket.readInteger();
-        /* Alternative
+        */
         let inVars = inPacket.read('iSiiii');
         let userIndex = inVars[0];
         let msg = inVars[1];
         let bubble = inVars[3];
-        */
 
         let outPacket = new HPacket('Whisper', HDirection.TOCLIENT)
             .appendInt(userIndex)

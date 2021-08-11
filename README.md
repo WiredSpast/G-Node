@@ -156,3 +156,5 @@ ext.sendToClient(hPacket);
 ```js
 ext.sendToServer(hPacket);
 ```
+## More
+For more examples and/or help read the [wiki](https://github.com/WiredSpast/G-Node/wiki)

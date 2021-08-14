@@ -7,6 +7,9 @@
   "scripts": {
     "test": "node test/test.js -p 9092"
   },
+  "engines":{
+    "node": ">14.0.0"
+  },
   "workspaces": [
     "./test/*"
   ],

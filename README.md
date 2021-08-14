@@ -1,6 +1,6 @@
 # G-Node
 Node.js [G-Earth](https://github.com/sirjonasxx/G-Earth) extension API <br>
-Requires Node.js V14.0+
+Requires Node.js V14.0.0+
 
 ## How to install
 Using npm:

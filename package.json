@@ -1,13 +1,13 @@
 {
   "name": "gnode-api",
-  "version": "0.0.1-beta.7",
+  "version": "0.0.1-beta.8",
   "description": "Node.js G-Earth extension API",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
     "test": "node test/test.js -p 9092"
   },
-  "engines":{
+  "engines": {
     "node": ">14.0.0"
   },
   "workspaces": [

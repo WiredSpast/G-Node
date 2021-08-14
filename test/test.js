@@ -13,11 +13,9 @@ let extensionInfo = {
 let ext = new Extension(extensionInfo);
 ext.run();
 
-ext.on('start', () => {
-    ext.interceptByNameOrHash(HDirection.TOCLIENT, 'Users', hMessage => {
-        let users = HEntity.parse(hMessage.getPacket());
-        for(let user of users) {
-            console.log(user.getName());
-        }
-    });
+ext.interceptByNameOrHash(HDirection.TOCLIENT, 'Users', hMessage => {
+    let users = HEntity.parse(hMessage.getPacket());
+    for(let user of users) {
+        console.log(user.getName());
+    }
 });

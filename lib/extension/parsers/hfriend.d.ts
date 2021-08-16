@@ -4,10 +4,16 @@ export class HFriend {
     constructor(packet: HPacket);
 
     /**
-     * Parse all friends from packet
+     * Parse all friends from fragment packet
      * @param packet Packet to parse from
      */
-    static parse(packet: HPacket): HFriend[];
+    static parseFromFragment(packet: HPacket): HFriend[];
+
+    /**
+     * Parse all friends from update packet
+     * @param packet Packet to parse from
+     */
+    static parseFromUpdate(packet: HPacket): HFriend[];
 
     /**
      * Get id of friend

@@ -8,7 +8,7 @@
     "test": "node test/test.js -p 9092"
   },
   "engines": {
-    "node": ">14.0.0"
+    "node": ">15.0.0"
   },
   "workspaces": [
     "./test/*"

@@ -329,7 +329,7 @@ export class HPacket {
 
     /**
      * Append short/Int16 at end of packet
-     * @param s hort/Int16 value to append
+     * @param s short/Int16 value to append
      */
     appendShort(s: number): this;
 
@@ -346,6 +346,79 @@ export class HPacket {
      * @param charset Optional encoding charset (default: "latin1")
      */
     appendLongString(s: String | string, charset?: BufferEncoding): this;
+
+
+    /**
+     * Insert int/Int32 at index
+     * @param index Index to insert at
+     * @param i int/Int32 value to insert
+     */
+    insertInt(index: number, i: number): this;
+
+    /**
+     * Insert long/Int64 at index
+     * @param index Index to insert at
+     * @param l long/Int64 value to insert
+     */
+    insertLong(index: number, l: number): this;
+
+    /**
+     * Insert double/Float64 at index
+     * @param index Index to insert at
+     * @param d double/Float64 value to insert
+     */
+    insertDouble(index: number, d: number): this;
+
+    /**
+     * Insert float/Float32 at index
+     * @param index Index to insert at
+     * @param f float/Float32 value to insert
+     */
+    insertFloat(index: number, f: number): this;
+
+    /**
+     * Insert byte/UInt8 at index
+     * @param index Index to insert at
+     * @param b byte/UInt8 value to insert
+     */
+    insertByte(index: number, b: number): this;
+
+    /**
+     * Insert byte[]/UInt8Array at index
+     * @param index Index to insert at
+     * @param bytes byte[]/UInt8Array value to insert
+     */
+    insertBytes(index: number, bytes: Uint8Array): this;
+
+    /**
+     * Insert boolean at index
+     * @param index Index to insert at
+     * @param b boolean value to insert
+     */
+    insertBoolean(index: number, b: boolean): this;
+
+    /**
+     * Insert unsigned short/UInt16 at index
+     * @param index Index to insert at
+     * @param ushort unsigned short/UInt16 value to insert
+     */
+    insertUShort(index: number, ushort: number): this;
+
+    /**
+     * Insert short/Int16 at index
+     * @param index Index to insert at
+     * @param s short/Int16 value to insert
+     */
+    insertShort(index: number, s: number): this;
+
+    /**
+     * Insert string at index
+     * @param index Index to insert at
+     * @param s string value to insert
+     * @param charset Optional encoding charset (default: "latin1")
+     */
+    insertString(index: number, s: String | string, charset?: BufferEncoding): this;
+
 
     /**
      * Check if packet has been edited

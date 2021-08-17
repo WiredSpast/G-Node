@@ -450,7 +450,7 @@ export class HPacket {
      * @param objects Array of objects to insert
      * @param structure String of objects structure
      */
-    append(structure: string, ...objects: any[]): this;
+    insert(structure: string, ...objects: any[]): this;
 
 
     /**
@@ -469,7 +469,11 @@ export class HPacket {
      */
     overrideEditedField(edited: boolean): void;
 
-    // TODO toExpression
+    /**
+     * Get the expression of the packet with given structure
+     * @param structure Structure of packet
+     */
+    toExpression(structure: string): string;
 
     /**
      * Convert the packet to a string

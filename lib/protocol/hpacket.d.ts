@@ -447,10 +447,11 @@ export class HPacket {
      * f: float / Float32 <br>
      * B: boolean <br>
      * S: string
+     * @param index Index to insert at
      * @param objects Array of objects to insert
      * @param structure String of objects structure
      */
-    insert(structure: string, ...objects: any[]): this;
+    insert(index:number, structure: string, ...objects: any[]): this;
 
 
     /**

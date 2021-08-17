@@ -347,6 +347,23 @@ export class HPacket {
      */
     appendLongString(s: String | string, charset?: BufferEncoding): this;
 
+    /**
+     * Append objects to packet in given structure <br>
+     * b: byte / UInt8 <br>
+     * i: int / Int32 <br>
+     * s: short / Int16 <br>
+     * u: ushort / UInt16 <br>
+     * l: long / Int64 <br>
+     * d: double / Float64 <br>
+     * f: float / Float32 <br>
+     * B: boolean <br>
+     * S: string
+     * @param objects Array of objects to append
+     * @param structure String of objects structure
+     */
+    append(structure: string, ...objects: any[]): this;
+
+
 
     /**
      * Insert int/Int32 at index
@@ -418,6 +435,22 @@ export class HPacket {
      * @param charset Optional encoding charset (default: "latin1")
      */
     insertString(index: number, s: String | string, charset?: BufferEncoding): this;
+
+    /**
+     * Insert objects to packet in given structure at index <br>
+     * b: byte / UInt8 <br>
+     * i: int / Int32 <br>
+     * s: short / Int16 <br>
+     * u: ushort / UInt16 <br>
+     * l: long / Int64 <br>
+     * d: double / Float64 <br>
+     * f: float / Float32 <br>
+     * B: boolean <br>
+     * S: string
+     * @param objects Array of objects to insert
+     * @param structure String of objects structure
+     */
+    append(structure: string, ...objects: any[]): this;
 
 
     /**

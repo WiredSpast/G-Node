@@ -10,9 +10,6 @@
   "engines": {
     "node": ">15.0.0"
   },
-  "workspaces": [
-    "./test/*"
-  ],
   "keywords": [],
   "author": "WiredSpast",
   "license": "ISC",
@@ -20,8 +17,7 @@
     "@types/node": "^16.4.13"
   },
   "directories": {
-    "lib": "lib",
-    "test": "test"
+    "lib": "lib"
   },
   "repository": "git+https://github.com/WiredSpast/G-Node.git",
   "bugs": {

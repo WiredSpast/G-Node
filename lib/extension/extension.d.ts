@@ -107,6 +107,13 @@ export class Extension {
      */
     on(event: 'connect', listener: (host: string, connectionPort: number, hotelVersion: string, clientIdentifier: string, clientType: HClient) => void): this;
 
+    /**
+     * Listen for the socket connection to drop
+     * @param event Socket connection ended
+     * @param listener Do on socket connection end
+     */
+    on(event: 'socketdisconnect', listener: () => void): this;
+
     getPacketInfoManager(): PacketInfoManager;
 
 }

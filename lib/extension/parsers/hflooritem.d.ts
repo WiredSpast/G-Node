@@ -32,123 +32,139 @@ export class HFloorItem {
     /**
      * Get type id of floor item
      */
-    getTypeId(): number;
+    get typeId(): number;
 
     /**
      * Get usage policy of floor item
      */
-    getUsagePolicy(): number;
+    get usagePolicy(): number;
 
     /**
      * Get owner id of floor item
      */
-    getOwnerId(): number;
+    get ownerId(): number;
 
     /**
      * Get owner name of floor item
      */
-    getOwnerName(): string;
+    get ownerName(): string;
 
     /**
      * Get seconds to expiration
      */
-    getSecondsToExpiration(): number;
+    get secondsToExpiration(): number;
 
     /**
-     * Get category of floor item
+     * Get stuff category of floor item
      */
-    getCategory(): number;
+    get stuffCategory(): number;
 
     /**
      * Get direction in which floor item is facing
      */
-    getFacing(): HFacing;
+    get facing(): HFacing;
 
     /**
      * Get position of floor item
      */
-    getTile(): HPoint;
+    get tile(): HPoint;
+
+    /**
+     * Get sizeZ of floor item
+     */
+    get sizeZ(): number;
+
+    /**
+     * Get extra of floor item
+     */
+    get extra(): number;
 
     /**
      * Get stuff of floor item
      */
-    getStuff(): any[];
+    get stuff(): any[];
+
+    /**
+     * Get staticClass of floor item
+     */
+    get staticClass(): string | undefined;
 
 
     /**
      * Set owner name of floor item
-     * @param ownerName Owner name to be set
+     * @param val Owner name to be set
      */
-    setOwnerName(ownerName: String): void;
+    set ownerName(val: String);
 
     /**
      * Set id of floor item
-     * @param id Id to be set
+     * @param val Id to be set
      */
-    setId(id: number): void;
+    set id(val: number);
 
     /**
      * Set type id of floor item
-     * @param typeId Type id to be set
+     * @param val Type id to be set
      */
-    setTypeId(typeId: number): void;
+    set typeId(val: number);
 
     /**
      * Set position of floor item
-     * @param tile Position to be set
+     * @param val Position to be set
      */
-    setTile(tile: HPoint): void;
+    set tile(val: HPoint);
+
+    /**
+     * Set sizeZ of floor item
+     * @param val Value to be set
+     */
+    set sizeZ(val: number);
+
+    /**
+     * Set extra of floor item
+     * @param val Value to be set
+     */
+    set extra(val: number);
 
     /**
      * Set direction in which floor item is facing
-     * @param facing Direction to set
+     * @param val Direction to set
      */
-    setFacing(facing: HFacing): void;
+    set facing(val: HFacing);
 
     /**
-     * Set category of floor item
-     * @param category Category to set
+     * Set stuff category of floor item
+     * @param val Category to set
      */
-    setCategory(category: number): void;
+    set stuffCategory(val: number);
 
     /**
      * Set seconds to expiration of floor item
-     * @param secondsToExpiration Seconds to expiration to be set
+     * @param val Seconds to expiration to be set
      */
-    setSecondsToExpiration(secondsToExpiration: number): void;
+    set secondsToExpiration(val: number);
 
     /**
      * Set usage policy of floor item
-     * @param usagePolicy Usage policy to be set
+     * @param val Usage policy to be set
      */
-    setUsagePolicy(usagePolicy: number): void;
+    set usagePolicy(val: number);
 
     /**
      * Set owner id of floor item
-     * @param ownerId Owner id to be set
+     * @param val Owner id to be set
      */
-    setOwnerId(ownerId: number): void;
+    set ownerId(val: number);
 
     /**
      * Set stuff of floor item
-     * @param stuff Stuff to be set
+     * @param val Stuff to be set
      */
-    setStuff(stuff: any[]): void;
-}
-
-export class HStuff {
-    /**
-     * Read stuff from packet
-     * @param packet Packet to read from
-     * @param category Stuff category
-     */
-    static readData(packet: HPacket, category: number): any[];
+    set stuff(val: any[]);
 
     /**
-     * Append stuff to packet
-     * @param packet Packet to append to
-     * @param category Stuff category
-     * @param stuff Stuff to append
+     * Set static class of floor item
+     * @param val Value to be set
      */
-    static appendData(packet: HPacket, category: number, stuff: any[]): void;
+    set staticClass(val: string | undefined);
 }

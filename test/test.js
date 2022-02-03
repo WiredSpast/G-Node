@@ -1,28 +1,26 @@
-let { HPacket, HDirection } = require('../index');
+const { Extension, HDirection, HEntity, HUserProfile} = require('../index');
 
-let packet = new HPacket('FriendListUpdate', HDirection.TOCLIENT)
-    .appendInt(4)
-    .appendInt(351079)
-    .appendString('Lennon')
-    .appendInt(354624)
-    .appendString('Real')
-    .appendInt(354625)
-    .appendString('Ik')
-    .appendInt(356757)
-    .appendString('No Spam')
-    .appendInt(0);
+const extensionInfo = require('./package.json');
 
-let n = packet.readInteger()
-packet.replaceInt(6, n + 1);
-for(let i = 0; i < n; i++) {
-    packet.read('iS');
+const ext = new Extension(extensionInfo);
+ext.run();
+
+ext.interceptByNameOrHash(HDirection.TOCLIENT, 'Users', onUsers);
+
+ext.interceptByNameOrHash(HDirection.TOCLIENT, 'ExtendedProfile', onExtendedProfile)
+
+function onUsers(hMessage) {
+    let users = HEntity.parse(hMessage.getPacket());
+    hMessage.setBlocked(true);
+    for(let user of users) {
+        user.figureId = "hr-828-49.hd-180-28.ch-3788-92.lg-3136-106.sh-290-92.ea-3803-92.ca-3187-92";
+    }
+
+    let packet = HEntity.constructPacket(users, hMessage.getPacket().headerId());
+    ext.sendToClient(packet);
 }
 
-// Put category int and string name in between existing packet at index
-packet.insertInt(packet.getReadIndex(), 400000);
-console.log(packet.readInteger());
-packet.insertString(packet.getReadIndex(), 'Group chats');
-packet.replaceString(packet.getReadIndex(), 'Group chats');
-console.log(packet.readString());
-
-console.log(packet.toExpression('iiSiSiSiSiSi'));
+function onExtendedProfile(hMessage) {
+    let profile = new HUserProfile(hMessage.getPacket());
+    console.log(profile);
+}

@@ -1,6 +1,8 @@
 import { HPacket } from "../../protocol/hpacket";
 import { HPoint } from "./hpoint";
-import { HFacing } from "./hfacing";
+import { HEntityType } from "./hentitytype";
+import { HGender } from "./hgender";
+import { HEntityUpdate } from "./hentityupdate";
 
 export class HEntity {
     constructor(packet: HPacket);
@@ -12,6 +14,19 @@ export class HEntity {
     static parse(packet: HPacket): HEntity[];
 
     /**
+     * Append entity to a packet
+     * @param packet Packet to be appended to
+     */
+    appendToPacket(packet: HPacket): void;
+
+    /**
+     * Construct packet with header id containing all entities
+     * @param entities Entities to add to packet
+     * @param headerId Header id of packet
+     */
+    static constructPacket(entities: HEntity[], headerId: number): HPacket;
+
+    /**
      * Try performing an entity update on entity
      * @param update entity update to try
      */
@@ -20,150 +35,112 @@ export class HEntity {
     /**
      * Get id from entity
      */
-    getId(): number;
+    get id(): number;
+
+    /**
+     * Set id from entity
+     */
+    set id(val: number);
 
     /**
      * Get entity index in room
      */
-    getIndex(): number;
+    get index(): number;
+
+    /**
+     * Set entity index in room
+     */
+    set index(val: number);
 
     /**
      * Get entity position in room
      */
-    getTile(): HPoint;
+    get tile(): HPoint;
+
+    /**
+     * Set entity position in room
+     */
+    set tile(val: HPoint);
 
     /**
      * Get entity name
      */
-    getName(): string;
+    get name(): string;
+
+    /**
+     * Set entity name
+     */
+    set name(val: string);
 
     /**
      * Get entity motto
      */
-    getMotto(): string;
+    get motto(): string;
+
+    /**
+     * Set entity motto
+     */
+    set motto(val: string);
 
     /**
      * Get entity gender
      */
-    getGender(): HGender;
+    get gender(): HGender | null;
+
+    /**
+     * Set entity gender
+     */
+    set gender(val: HGender | null);
 
     /**
      * Get entity type
      */
-    getEntityType(): HEntityType;
+    get entityType(): HEntityType;
+
+    /**
+     * Set entity type
+     */
+    set entityType(val: HEntityType);
 
     /**
      * Get figure
      */
-    getFigureId(): string;
+    get figureId(): string;
+
+    /**
+     * Set figure
+     */
+    set figureId(val: string);
 
     /**
      * Get favorite group
      */
-    getFavoriteGroup(): string;
+    get favoriteGroup(): string | null;
+
+    /**
+     * Set favorite group
+     */
+    set favoriteGroup(val: string | null);
 
     /**
      * Get last entity update
      */
-    getLastUpdate(): HEntityUpdate;
+    get lastUpdate(): HEntityUpdate | null;
+
+    /**
+     * Set last entity update
+     */
+    set lastUpdate(val: HEntityUpdate | null);
 
     /**
      * Get stuff
      */
-    getStuff(): any[];
-}
-
-export class HEntityUpdate {
-    constructor(packet: HPacket);
+    get stuff(): any[];
 
     /**
-     * Parse all HEntityUpdates from packet
-     * @param packet Packet to parse
+     * Set stuff
      */
-    static parse(packet: HPacket): HEntityUpdate[];
-    /**
-     * Get user index of update
-     */
-    getIndex(): number;
-    /**
-     * Check is user has room rights
-     */
-    isController(): boolean;
-    /**
-     * Get current tile position of entity
-     */
-    getTile(): HPoint;
-    /**
-     * Get tile position where entity is moving towards
-     */
-    getMovingTo(): HPoint;
-    /**
-     * Get sign entity is holding
-     */
-    getSign(): HSign;
-    /**
-     * Get stance of entity
-     */
-    getStance(): HStance;
-    /**
-     * Get action that entity is doing
-     */
-    getAction(): HAction;
-    /**
-     * Get direction in which the entity's head is facing
-     */
-    getHeadFacing(): HFacing;
-    /**
-     * Get direction in which the entity's body is facing
-     */
-    getBodyFacing(): HFacing;
+    set stuff(val: any[]);
 }
 
-export enum HEntityType {
-    HABBO = 1,
-    PET,
-    OLD_BOT,
-    BOT
-}
 
-export enum HGender {
-    Unisex = 'U',
-    Male = 'M',
-    Female = 'F'
-}
-
-export enum HSign {
-    Zero,
-    One,
-    Two,
-    Three,
-    Four,
-    Five,
-    Six,
-    Seven,
-    Eight,
-    Nine,
-    Ten,
-    Heart,
-    Skull,
-    Exclamation,
-    Soccerball,
-    Smiley,
-    Redcard,
-    Yellowcard,
-    Invisible
-}
-
-export enum HStance {
-    Stand,
-    Sit,
-    Lay
-}
-
-export enum HAction {
-    None,
-    Move,
-    Sit,
-    Lay,
-    Sign
-}

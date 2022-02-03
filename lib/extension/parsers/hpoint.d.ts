@@ -5,20 +5,42 @@ export class HPoint {
     /**
      * Get X coordinate of point
      */
-    getX(): number;
+    get x(): number;
+
+    /**
+     * Set X coordinate of point
+     * @param val Value to be set
+     */
+    set x(val: number);
+
     /**
      * Get Y coordinate of point
      */
-    getY(): number;
+    get y(): number;
+
+    /**
+     * Set Y coordinate of point
+     * @param val Value to be set
+     */
+    set y(val: number);
+
     /**
      * Get Z coordinate / height of point
      */
-    getZ(): number;
+    get z(): number;
+
+    /**
+     * Set Z coordinate of point
+     * @param val Value to be set
+     */
+    set z(val: number);
+
     /**
      * Check if point equals other point
      * @param point value to compare it to
      */
     equals(point: HPoint): boolean;
+
     /**
      * Express point in a string
      */

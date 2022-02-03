@@ -1,4 +1,6 @@
 import { HPacket } from "../../protocol/hpacket";
+import { HFurniType } from "./hfurnitype";
+import { HSpecialType } from "./hspecialtype";
 
 export class HInventoryItem {
     constructor(packet: HPacket);
@@ -23,140 +25,189 @@ export class HInventoryItem {
     static constructPackets(inventoryItems: HInventoryItem[], headerId: number): HPacket[];
 
     /**
+     * Get itemId of inventory item
+     */
+    get itemId(): number;
+
+    /**
+     * Set itemId of inventory item
+     * @param val Value to be set
+     */
+    set itemId(val: number);
+
+    /**
      * Get furnitype (WALL or FLOOR) of inventory item
      */
-    getFurniType(): HFurniType;
+    get furniType(): HFurniType;
+
+    /**
+     * Set furnitype (WALL or FLOOR) of inventory item
+     * @param val Value to be set
+     */
+    set furniType(val: HFurniType);
 
     /**
      * Get id of inventory item
      */
-    getId(): number;
+    get id(): number;
+
+    /**
+     * Set id of inventory item
+     * @param val Value to be set
+     */
+    set id(val: number);
 
     /**
      * Get type id of inventory item
      */
-    getTypeId(): number;
+    get typeId(): number;
+
+    /**
+     * Set type id of inventory item
+     * @param val Value to be set
+     */
+    set typeId(val: number);
 
     /**
      * Get category of inventory item
      */
-    getCategory(): number;
+    get category(): HSpecialType;
+
+    /**
+     * Set category of inventory item
+     * @param val Value to be set
+     */
+    set category(val: HSpecialType);
+
+    /**
+     * Get stuff category of inventory item
+     */
+    get stuffCategory(): number;
+
+    /**
+     * Set stuff category of inventory item
+     * @param val Value to be set
+     */
+    set stuffCategory(val: number);
 
     /**
      * Get stuff of inventory item
      */
-    getStuff(): any[];
+    get stuff(): any[];
 
     /**
-     * Check if inventory item is groupable
+     * Get stuff of inventory item
+     * @param val Value to be set
      */
-    isGroupable(): boolean;
+    set stuff(val: any[]);
+
+    /**
+     * Check if inventory item is recyclable
+     */
+    get isRecyclable(): boolean;
+
+    /**
+     * Set whether inventory item is recyclable
+     * @param val Value to be set
+     */
+    set isRecyclable(val: boolean);
 
     /**
      * Check if inventory item is tradeable
      */
-    isTradeable(): boolean;
+    get isTradeable(): boolean;
 
     /**
-     * Check if inventory item is allow on marketplace
+     * Set whether inventory item is tradeable
+     * @param val Value to be set
      */
-    isAllowedOnMarketplace(): boolean;
+    set isTradeable(val: boolean);
+
+    /**
+     * Check if inventory item is groupable
+     */
+    get isGroupable(): boolean;
+
+    /**
+     * Set whether inventory item is groupable
+     * @param val Value to be set
+     */
+    set isGroupable(val: boolean);
+
+    /**
+     * Check if inventory item is sellable
+     */
+    get isSellable(): boolean;
+
+    /**
+     * Set whether inventory item is sellable
+     * @param val Value to be set
+     */
+    set isSellable(val: boolean);
 
     /**
      * Get amount of seconds to expiration of inventory item
      */
-    getSecondsToExpiration(): number;
+    get secondsToExpiration(): number;
+
+    /**
+     * Set amount of seconds to expiration of inventory item
+     * @param val Value to be set
+     */
+    set secondsToExpiration(val: number);
+
+    /**
+     * Check if inventory item is rented
+     */
+    get isRented(): boolean;
+
+    /**
+     * Set whether inventory item is rented
+     * @param val Value to be set
+     */
+    set isRented(val: boolean);
 
     /**
      * Check if rent period of inventory item has started
      */
-    hasRentPeriodStarted(): boolean;
+    get hasRentPeriodStarted(): boolean;
+
+    /**
+     * Set whether rent period of inventory item has started
+     * @param val Value to be set
+     */
+    set hasRentPeriodStarted(val: boolean);
 
     /**
      * Get room id of inventory item
      */
-    getRoomId(): number;
+    get roomId(): number;
+
+    /**
+     * Get room id of inventory item
+     * @param val Value to be set
+     */
+    set roomId(val: number);
 
     /**
      * Get slot id of inventory item (Floor items only)
      */
-    getSlotId(): string | undefined;
-
-
-    /**
-     * Set furni type of inventory item
-     * @param furniType Furni type to be set
-     */
-    setFurniType(furniType: HFurniType): void;
+    get slotId(): string | undefined;
 
     /**
-     * Set id of inventory item
-     * @param id Id to be set
+     * Set slot id of inventory item (Floor items only)
+     * @param val Value to be set
      */
-    setId(id: number): void;
+    set slotId(val: string | undefined);
 
     /**
-     * Set type id of inventory item
-     * @param typeId Type id to be set
+     * Get extra of inventory item
      */
-    setTypeId(typeId: number): void;
+    get extra(): number;
 
     /**
-     * Set category of inventory item
-     * @param category Category to be set
+     * Set extra of inventory item
+     * @param val Value to be set
      */
-    setCategory(category: number): void;
-
-    /**
-     * Set stuff of inventory item
-     * @param stuff Stuff to be set
-     */
-    setStuff(stuff: any[]): void;
-
-    /**
-     * Set whether inventory item is groupable
-     * @param isGroupable Boolean value to be set
-     */
-    setIsGroupable(isGroupable: boolean): void;
-
-    /**
-     * Set whether inventory item is tradeable
-     * @param isTradeable Boolean value to be set
-     */
-    setIsTradeable(isTradeable: boolean): void;
-
-    /**
-     * Set whether inventory item is allowed on marketplace
-     * @param isAllowedOnMarketplace Boolean value to be set
-     */
-    setIsAllowedOnMarketplace(isAllowedOnMarketplace: boolean): void;
-
-    /**
-     * Set seconds to expiration of inventory item
-     * @param secondsToExpiration Seconds to expiration to be set
-     */
-    setSecondsToExpiration(secondsToExpiration: number): void;
-
-    /**
-     * Set whether rent period of inventory item has started
-     * @param hasRentPeriodStarted Boolean value to be set
-     */
-    setHasRentPeriodStarted(hasRentPeriodStarted: number): void;
-
-    /**
-     * Set room id of inventory item
-     * @param roomId Room id to be set
-     */
-    setRoomId(roomId: number): void;
-
-    /**
-     * Set slot id of inventory item
-     * @param slotId Slot id to be set
-     */
-    setSlotId(slotId: string | undefined): void;
-}
-
-export enum HFurniType {
-    FLOOR = 'S',
-    WALL = 'I'
+    set extra(val: number | undefined);
 }

@@ -7,65 +7,131 @@ export class HUserProfile {
     /**
      * Get user id
      */
-    getId(): number;
+    get id(): number;
+
+    /**
+     * Set user id
+     * @param val Value to be set
+     */
+    set id(val: number);
 
     /**
      * Get username
      */
-    getUsername(): string;
+    get username(): string;
+
+    /**
+     * Set username
+     */
+    set username(val: string);
 
     /**
      * Get user motto
      */
-    getMotto(): string;
+    get motto(): string;
+
+    /**
+     * Set user motto
+     */
+    set motto(val: string);
 
     /**
      * Get user figure string
      */
-    getFigure(): string;
+    get figure(): string;
+
+    /**
+     * Set user figure string
+     */
+    set figure(val: string);
 
     /**
      * Get creation date of account
      */
-    getCreationData(): string;
+    get creationDate(): string;
+
+    /**
+     * Set creation date of account
+     */
+    set creationDate(val: string);
 
     /**
      * Get achievement score
      */
-    getAchievementsScore(): number;
+    get achievementsScore(): number;
+
+    /**
+     * Set achievement score
+     */
+    set achievementsScore(val: number);
 
     /**
      * Get friend count
      */
-    getFriendCount(): number;
+    get friendCount(): number;
+
+    /**
+     * Set friend count
+     */
+    set friendCount(val: number);
 
     /**
      * Is friend of user
      */
-    isFriend(): boolean;
+    get isFriend(): boolean;
+
+    /**
+     * Set whether you are shown as friend of user
+     */
+    set isFriend(val: boolean);
 
     /**
      * Friend request has been send out
      */
-    isRequestedFriend(): boolean;
+    get isRequestedFriend(): boolean;
+
+    /**
+     * Set whether friend request has been send out
+     */
+    set isRequestedFriend(val: boolean);
 
     /**
      * Is user online
      */
-    isOnline(): boolean;
+    get isOnline(): boolean;
+
+    /**
+     * Set whether user appears as online
+     */
+    set isOnline(val: boolean);
 
     /**
      * Get all groups from user
      */
-    getGroups(): HGroup[];
+    get groups(): HGroup[];
+
+    /**
+     * Set all groups from user
+     */
+    set groups(val: HGroup[]);
 
     /**
      * Check when user was last online
      */
-    getLastAccessSince(): number;
+    get lastAccessSince(): number;
+
+    /**
+     * Set when user was last online
+     */
+    set lastAccessSince(val: number);
 
     /**
      * Check if profile is public
      */
-    isOpenProfile(): boolean;
+    get openProfile(): boolean;
+
+    /**
+     * Set if profile is public
+     */
+    set openProfile(val: boolean);
 }

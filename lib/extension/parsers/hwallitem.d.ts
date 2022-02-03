@@ -25,89 +25,89 @@ export class HWallItem {
     /**
      * Get id of wall item
      */
-    getId(): number;
+    get id(): number;
 
     /**
      * Get type id of wall item
      */
-    getTypeId(): number;
+    get typeId(): number;
 
     /**
      * Get usage policy of wall item
      */
-    getUsagePolicy(): number;
+    get usagePolicy(): number;
 
     /**
      * Get owner id of wall item
      */
-    getOwnerId(): number;
+    get ownerId(): number;
 
     /**
      * Get owner name of wall item
      */
-    getOwnerName(): string;
+    get ownerName(): string;
 
     /**
      * Get state of wall item
      */
-    getState(): string;
+    get state(): string;
 
     /**
      * Get location of wall item
      */
-    getLocation(): string;
+    get location(): string;
 
     /**
      * Get seconds to expiration of wall item
      */
-    getSecondsToExpiration(): number;
+    get secondsToExpiration(): number;
 
 
     /**
      * Set owner name of wall item
-     * @param ownerName Owner name to be set
+     * @param val Owner name to be set
      */
-    setOwnerName(ownerName: string): void;
+    set ownerName(val: string);
 
     /**
      * Set id of wall item
-     * @param id Id to be set
+     * @param val Id to be set
      */
-    setId(id: number): void;
+    set id(val: number);
 
     /**
      * Set type id of wall item
-     * @param typeId Type id to be set
+     * @param val Type id to be set
      */
-    setTypeId(typeId: number): void;
+    set typeId(val: number);
 
     /**
      * Set state of wall item
-     * @param state State to be set
+     * @param val State to be set
      */
-    setState(state: string): void;
+    set state(val: string);
 
     /**
      * Set location of wall item
-     * @param location Location to be set
+     * @param val Location to be set
      */
-    setLocation(location: string): void;
+    set location(val: string);
 
     /**
      * Set usage policy of wall item
-     * @param usagePolicy Usage policy to be set
+     * @param val Usage policy to be set
      */
-    setUsagePolicy(usagePolicy: number): void;
+    set usagePolicy(val: number);
 
     /**
      * Set seconds to expiration of wall item
-     * @param secondsToExpiration Seconds to expiration to be set
+     * @param val Seconds to expiration to be set
      */
-    setSecondsToExpiration(secondsToExpiration: number): void;
+    set secondsToExpiration(val: number);
 
     /**
      * Set owner id of wall item
-     * @parram ownerId Owner id to be set
+     * @param val Owner id to be set
      */
-    setOwnerId(ownerId: number): void;
+    set ownerId(val: number);
 }

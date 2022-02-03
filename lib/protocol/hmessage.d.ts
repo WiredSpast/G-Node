@@ -13,14 +13,14 @@ export class HMessage {
 
     /**
      * Change the private parameter #isBlocked
-     * @param block Boolean value to be set to private parameter #isBlocked
+     * @param val Boolean value to be set to private parameter #isBlocked
      */
-    setBlocked(block: boolean): void;
+    set blocked(val: boolean);
 
     /**
      * Get the private parameter #isBlocked
      */
-    isBlocked(): boolean;
+    get blocked(): boolean;
 
     /**
      * Get the private parameter #hPacket

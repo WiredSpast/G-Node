@@ -13,7 +13,7 @@ export class PacketInfoManager {
     getPacketInfoFromHash(direction: HDirection, hash: string): PacketInfo | null;
     getPacketInfoFromName(direction: HDirection, name: string): PacketInfo | null;
 
-    getPacketInfoList(): PacketInfo[];
+    get packetInfoList(): PacketInfo[];
 
     static readFromPacket(hPacket: HPacket): PacketInfoManager;
 }

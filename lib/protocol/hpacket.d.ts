@@ -26,18 +26,22 @@ export class HPacket {
     isEOF(): number;
     /**
      * Change the private parameter #identifier
-     * @param identifier String identifier
+     * @param val String identifier
      */
-    setIdentifier(identifier: String | string): void;
+    set identifier(val: string);
     /**
      * Change the private parameter #direction
-     * @param identifierDirection HDirection (TOSERVER or TOCLIENT)
+     * @param val HDirection (TOSERVER or TOCLIENT)
      */
-    setIdentifierDirection(identifierDirection: HDirection): void;
+    set identifierDirection(val: HDirection);
     /**
      * Get private parameter #identifier
      */
-    getIdentifier(): string;
+    get identifier(): string;
+    /**
+     * Get private parameter #identifierDirection
+     */
+    get identifierDirection(): HDirection;
 
     completePacket(packetInfoManager: PacketInfoManager): void;
     /**
@@ -61,12 +65,12 @@ export class HPacket {
     /**
      * Return the private parameter #readIndex
      */
-    getReadIndex(): number;
+    get readIndex(): number;
     /**
      * Change the private parameter #readIndex
-     * @param number Read index
+     * @param val Read index
      */
-    setReadIndex(number: number): void;
+    set readIndex(val: number);
     /**
      * Reset the private parameter #readIndex to it's starting value (6)
      */

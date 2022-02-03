@@ -11,7 +11,7 @@ ext.interceptByNameOrHash(HDirection.TOCLIENT, 'ExtendedProfile', onExtendedProf
 
 function onUsers(hMessage) {
     let users = HEntity.parse(hMessage.getPacket());
-    hMessage.setBlocked(true);
+    hMessage.blocked = true;
     for(let user of users) {
         user.figureId = "hr-828-49.hd-180-28.ch-3788-92.lg-3136-106.sh-290-92.ea-3803-92.ca-3187-92";
     }
@@ -21,6 +21,5 @@ function onUsers(hMessage) {
 }
 
 function onExtendedProfile(hMessage) {
-    let profile = new HUserProfile(hMessage.getPacket());
-    console.log(profile);
+    console.log(hMessage);
 }

@@ -5,6 +5,12 @@ export class HUserProfile {
     constructor(packet: HPacket);
 
     /**
+     * Construct a packet containing the user profile
+     * @param headerId Header id to assign to created packet
+     */
+    constructPacket(headerId: number): HPacket;
+
+    /**
      * Get user id
      */
     get id(): number;

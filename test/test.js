@@ -3,7 +3,7 @@ const { Extension, HDirection, HEntity, HUserProfile} = require('../index');
 const extensionInfo = require('./package.json');
 
 const ext = new Extension(extensionInfo);
-ext.run();
+//ext.run();
 
 ext.interceptByNameOrHash(HDirection.TOCLIENT, 'Users', onUsers);
 

@@ -1,8 +1,6 @@
-const { Extension, HDirection, HEntity, HEntityUpdate} = require('../index');
+const { Extension, HDirection, HEntityUpdate, GAsync, AwaitingPacket } = require('../index');
 
 const extensionInfo = require('./package.json');
-const { GAsync } = require("../lib/extension/tools/gasync/gasync");
-const {AwaitingPacket} = require("../lib/extension/tools/gasync/awaitingpacket");
 
 const ext = new Extension(extensionInfo);
 const gAsync = new GAsync(ext);

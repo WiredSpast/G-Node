@@ -114,6 +114,9 @@ export class Extension {
      */
     on(event: 'socketdisconnect', listener: () => void): this;
 
+    /**
+     * Get the packet info manager
+     */
     getPacketInfoManager(): PacketInfoManager;
 
 }

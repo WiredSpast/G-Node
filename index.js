@@ -25,3 +25,7 @@ exports.HFacing = require("./lib/extension/parsers/hfacing").HFacing;
 exports.HUserProfile = require("./lib/extension/parsers/huserprofile").HUserProfile;
 exports.HFriend = require("./lib/extension/parsers/hfriend").HFriend;
 exports.HRelationShipStatus = require("./lib/extension/parsers/hrelationshipstatus").HRelationshipStatus;
+
+// Tools
+exports.GAsync = require("./lib/extension/tools/gasync/gasync").GAsync;
+exports.AwaitingPacket = require("./lib/extension/tools/gasync/awaitingpacket").AwaitingPacket;

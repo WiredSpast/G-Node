@@ -28,3 +28,9 @@ import { HFriend } from "./lib/extension/parsers/hfriend";
 import { HRelationshipStatus } from "./lib/extension/parsers/hrelationshipstatus";
 
 export { HFloorItem, HStuff, HWallItem, HInventoryItem, HFurniType, HEntity, HEntityUpdate, HEntityType, HStance, HGender, HSign, HAction, HGroup, HPoint, HFacing, HUserProfile, HFriend, HRelationshipStatus };
+
+// Tools
+import { GAsync } from "./lib/extension/tools/gasync/gasync";
+import { AwaitingPacket } from "./lib/extension/tools/gasync/awaitingpacket";
+
+export { GAsync, AwaitingPacket };

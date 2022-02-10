@@ -1,25 +1,31 @@
-const { Extension, HDirection, HEntity, HUserProfile} = require('../index');
+const { Extension, HDirection, HEntity, HEntityUpdate} = require('../index');
 
 const extensionInfo = require('./package.json');
+const { GAsync } = require("../lib/extension/tools/gasync/gasync");
+const {AwaitingPacket} = require("../lib/extension/tools/gasync/awaitingpacket");
 
 const ext = new Extension(extensionInfo);
-//ext.run();
+const gAsync = new GAsync(ext);
+ext.run();
 
-ext.interceptByNameOrHash(HDirection.TOCLIENT, 'Users', onUsers);
 
-ext.interceptByNameOrHash(HDirection.TOCLIENT, 'ExtendedProfile', onExtendedProfile)
+ext.interceptByNameOrHash(HDirection.TOSERVER, "MoveAvatar", async hMessage => {
+    let packet = hMessage.getPacket();
+    let x = packet.readInteger();
+    let y = packet.readInteger();
 
-function onUsers(hMessage) {
-    let users = HEntity.parse(hMessage.getPacket());
-    hMessage.blocked = true;
-    for(let user of users) {
-        user.figureId = "hr-828-49.hd-180-28.ch-3788-92.lg-3136-106.sh-290-92.ea-3803-92.ca-3187-92";
-    }
+    let awaitedPacket = await gAsync
+        .awaitPacket(new AwaitingPacket("UserUpdate", HDirection.TOCLIENT, 1000)
+            .addCondition(hPacket => {
+                let entityUpdates = HEntityUpdate.parse(hPacket);
+                for (let entityUpdate of entityUpdates) {
+                    if(entityUpdate.tile.x === x && entityUpdate.tile.y === y) {
+                        return true;
+                    }
+                }
+                return false;
+            })
+        );
 
-    let packet = HEntity.constructPacket(users, hMessage.getPacket().headerId());
-    ext.sendToClient(packet);
-}
-
-function onExtendedProfile(hMessage) {
-    console.log(hMessage);
-}
+    console.log(awaitedPacket);
+});

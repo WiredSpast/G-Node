@@ -1,5 +1,5 @@
-import {HDirection} from "./hdirection";
-import {PacketInfoManager} from "../services/packetinfo/packetinfomanager";
+import { HDirection } from "./hdirection";
+import { PacketInfoManager } from "../services/packetinfo/packetinfomanager";
 
 export class HPacket {
     constructor(bytes: Uint8Array);

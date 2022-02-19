@@ -1,29 +1,25 @@
-const { Extension, HDirection, HEntityUpdate, GAsync, AwaitingPacket } = require('../index');
+import { Extension, HDirection, HFloorItem, HWallItem} from '../index.js';
+import { readFile } from 'fs/promises';
 
-const extensionInfo = require('./package.json');
+const extensionInfo = JSON.parse(
+    await readFile(
+        new URL('./package.json', import.meta.url)
+    )
+);
 
 const ext = new Extension(extensionInfo);
-const gAsync = new GAsync(ext);
 ext.run();
 
+ext.interceptByNameOrHash(HDirection.TOCLIENT, 'Items', hMessage => {
+    console.log('abc');
+    let items = HWallItem.parse(hMessage.getPacket());
+    hMessage.blocked = true;
+    console.log(items.length);
+    let packet = HWallItem.constructPacket(items, hMessage.getPacket().headerId());
+    ext.sendToClient(packet);
+});
 
-ext.interceptByNameOrHash(HDirection.TOSERVER, "MoveAvatar", async hMessage => {
-    let packet = hMessage.getPacket();
-    let x = packet.readInteger();
-    let y = packet.readInteger();
-
-    let awaitedPacket = await gAsync
-        .awaitPacket(new AwaitingPacket("UserUpdate", HDirection.TOCLIENT, 1000)
-            .addCondition(hPacket => {
-                let entityUpdates = HEntityUpdate.parse(hPacket);
-                for (let entityUpdate of entityUpdates) {
-                    if(entityUpdate.tile.x === x && entityUpdate.tile.y === y) {
-                        return true;
-                    }
-                }
-                return false;
-            })
-        );
-
-    console.log(awaitedPacket);
+ext.on('hostinfoupdate', hostInfo => {
+    console.log(hostInfo);
+    ext.writeToConsole('abc');
 });

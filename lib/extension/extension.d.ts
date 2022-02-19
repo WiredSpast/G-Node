@@ -4,6 +4,7 @@ import {HMessage} from "../protocol/hmessage";
 import {ExtensionInfo} from "./extensioninfo";
 import {HClient} from "../protocol/hclient";
 import {PacketInfoManager} from "../services/packetinfo/packetinfomanager";
+import { HostInfo } from "../misc/hostinfo";
 
 export class Extension {
     constructor(extensionInfo: ExtensionInfo);
@@ -115,8 +116,20 @@ export class Extension {
     on(event: 'socketdisconnect', listener: () => void): this;
 
     /**
+     * Listen for updates on host info
+     * @param event Host info updated
+     * @param listener Do on host info update
+     */
+    on(event: 'hostinfoupdate', listener: (hostInfo: HostInfo) => void): this;
+
+    /**
      * Get the packet info manager
      */
-    getPacketInfoManager(): PacketInfoManager;
+    getPacketInfoManager(): PacketInfoManager | undefined;
+
+    /**
+     * Get the CURRENT host info (use the hostinfoupdate listener to always have the host info up to date)
+     */
+    getHostInfo(): HostInfo | undefined;
 
 }

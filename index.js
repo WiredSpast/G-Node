@@ -1,31 +1,32 @@
 // Base
-exports.HPacket = require("./lib/protocol/hpacket").HPacket;
-exports.HDirection = require("./lib/protocol/hdirection").HDirection;
-exports.HMessage = require("./lib/protocol/hmessage").HMessage;
-exports.Extension = require("./lib/extension/extension").Extension;
-exports.HClient = require("./lib/protocol/hclient").HClient;
+export { HPacket } from "./lib/protocol/hpacket.js";
+export { HDirection } from "./lib/protocol/hdirection.js";
+export { HMessage } from "./lib/protocol/hmessage.js";
+export { Extension } from "./lib/extension/extension.js";
+export { HClient } from "./lib/protocol/hclient.js";
+
+export { HostInfo } from "./lib/misc/hostinfo.js";
 
 // Parsers
-exports.HFloorItem = require("./lib/extension/parsers/hflooritem").HFloorItem;
-exports.HStuff = require("./lib/extension/parsers/hstuff").HStuff;
-exports.HWallItem = require("./lib/extension/parsers/hwallitem").HWallItem;
-exports.HInventoryItem = require("./lib/extension/parsers/hinventoryitem").HInventoryItem;
-exports.HSpecialType = require("./lib/extension/parsers/hspecialtype").HSpecialType;
-exports.HFurniType = require("./lib/extension/parsers/hfurnitype").HFurniType;
-exports.HEntity = require("./lib/extension/parsers/hentity").HEntity;
-exports.HEntityUpdate = require("./lib/extension/parsers/hentityupdate").HEntityUpdate;
-exports.HEntityType = require("./lib/extension/parsers/hentitytype").HEntityType;
-exports.HStance = require("./lib/extension/parsers/hstance").HStance;
-exports.HGender = require("./lib/extension/parsers/hgender").HGender;
-exports.HSign = require("./lib/extension/parsers/hsign").HSign;
-exports.HAction = require("./lib/extension/parsers/haction").HAction;
-exports.HGroup = require("./lib/extension/parsers/hgroup").HGroup;
-exports.HPoint = require("./lib/extension/parsers/hpoint").HPoint;
-exports.HFacing = require("./lib/extension/parsers/hfacing").HFacing;
-exports.HUserProfile = require("./lib/extension/parsers/huserprofile").HUserProfile;
-exports.HFriend = require("./lib/extension/parsers/hfriend").HFriend;
-exports.HRelationShipStatus = require("./lib/extension/parsers/hrelationshipstatus").HRelationshipStatus;
+export { HFloorItem } from "./lib/extension/parsers/hflooritem.js";
+export { HStuff } from "./lib/extension/parsers/hstuff.js";
+export { HWallItem } from "./lib/extension/parsers/hwallitem.js";
+export { HInventoryItem } from "./lib/extension/parsers/hinventoryitem.js";
+export { HFurniType } from "./lib/extension/parsers/hfurnitype.js";
+export { HEntity } from "./lib/extension/parsers/hentity.js";
+export { HEntityUpdate } from "./lib/extension/parsers/hentityupdate.js";
+export { HEntityType } from "./lib/extension/parsers/hentitytype.js";
+export { HStance } from "./lib/extension/parsers/hstance.js";
+export { HGender } from "./lib/extension/parsers/hgender.js";
+export { HSign } from "./lib/extension/parsers/hsign.js";
+export { HAction } from "./lib/extension/parsers/haction.js";
+export { HGroup } from "./lib/extension/parsers/hgroup.js";
+export { HPoint } from "./lib/extension/parsers/hpoint.js";
+export { HFacing } from "./lib/extension/parsers/hfacing.js";
+export { HUserProfile } from "./lib/extension/parsers/huserprofile.js";
+export { HFriend } from "./lib/extension/parsers/hfriend.js";
+export { HRelationshipStatus } from "./lib/extension/parsers/hrelationshipstatus.js";
 
 // Tools
-exports.GAsync = require("./lib/extension/tools/gasync/gasync").GAsync;
-exports.AwaitingPacket = require("./lib/extension/tools/gasync/awaitingpacket").AwaitingPacket;
+export { GAsync } from "./lib/extension/tools/gasync/gasync.js";
+export { AwaitingPacket } from "./lib/extension/tools/gasync/awaitingpacket.js";

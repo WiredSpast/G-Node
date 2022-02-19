@@ -1,36 +1,32 @@
 // Base
-import { HPacket } from "./lib/protocol/hpacket";
-import { HDirection } from "./lib/protocol/hdirection";
-import { HMessage } from "./lib/protocol/hmessage";
-import { Extension } from "./lib/extension/extension";
-import { HClient } from "./lib/protocol/hclient";
+export { HPacket } from "./lib/protocol/hpacket";
+export { HDirection } from "./lib/protocol/hdirection";
+export { HMessage } from "./lib/protocol/hmessage";
+export { Extension } from "./lib/extension/extension";
+export { HClient } from "./lib/protocol/hclient";
 
-export { HPacket, HDirection, HMessage, Extension, HClient };
+export { HostInfo } from "./lib/misc/hostinfo";
 
 // Parsers
-import { HFloorItem } from "./lib/extension/parsers/hflooritem";
-import { HStuff } from "./lib/extension/parsers/hstuff";
-import { HWallItem } from "./lib/extension/parsers/hwallitem";
-import { HInventoryItem } from "./lib/extension/parsers/hinventoryitem";
-import { HFurniType } from "./lib/extension/parsers/hfurnitype";
-import { HEntity } from "./lib/extension/parsers/hentity";
-import { HEntityUpdate } from "./lib/extension/parsers/hentityupdate";
-import { HEntityType } from "./lib/extension/parsers/hentitytype";
-import { HStance } from "./lib/extension/parsers/hstance";
-import { HGender } from "./lib/extension/parsers/hgender";
-import { HSign } from "./lib/extension/parsers/hsign";
-import { HAction } from "./lib/extension/parsers/haction";
-import { HGroup } from "./lib/extension/parsers/hgroup";
-import { HPoint } from "./lib/extension/parsers/hpoint";
-import { HFacing } from "./lib/extension/parsers/hfacing";
-import { HUserProfile } from "./lib/extension/parsers/huserprofile";
-import { HFriend } from "./lib/extension/parsers/hfriend";
-import { HRelationshipStatus } from "./lib/extension/parsers/hrelationshipstatus";
-
-export { HFloorItem, HStuff, HWallItem, HInventoryItem, HFurniType, HEntity, HEntityUpdate, HEntityType, HStance, HGender, HSign, HAction, HGroup, HPoint, HFacing, HUserProfile, HFriend, HRelationshipStatus };
+export { HFloorItem } from "./lib/extension/parsers/hflooritem";
+export { HStuff } from "./lib/extension/parsers/hstuff";
+export { HWallItem } from "./lib/extension/parsers/hwallitem";
+export { HInventoryItem } from "./lib/extension/parsers/hinventoryitem";
+export { HFurniType } from "./lib/extension/parsers/hfurnitype";
+export { HEntity } from "./lib/extension/parsers/hentity";
+export { HEntityUpdate } from "./lib/extension/parsers/hentityupdate";
+export { HEntityType } from "./lib/extension/parsers/hentitytype";
+export { HStance } from "./lib/extension/parsers/hstance";
+export { HGender } from "./lib/extension/parsers/hgender";
+export { HSign } from "./lib/extension/parsers/hsign";
+export { HAction } from "./lib/extension/parsers/haction";
+export { HGroup } from "./lib/extension/parsers/hgroup";
+export { HPoint } from "./lib/extension/parsers/hpoint";
+export { HFacing } from "./lib/extension/parsers/hfacing";
+export { HUserProfile } from "./lib/extension/parsers/huserprofile";
+export { HFriend } from "./lib/extension/parsers/hfriend";
+export { HRelationshipStatus } from "./lib/extension/parsers/hrelationshipstatus";
 
 // Tools
-import { GAsync } from "./lib/extension/tools/gasync/gasync";
-import { AwaitingPacket } from "./lib/extension/tools/gasync/awaitingpacket";
-
-export { GAsync, AwaitingPacket };
+export { GAsync } from "./lib/extension/tools/gasync/gasync";
+export { AwaitingPacket } from "./lib/extension/tools/gasync/awaitingpacket";

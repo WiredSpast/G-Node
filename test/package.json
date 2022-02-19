@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Node.js G-Earth extension test",
   "main": "test.js",
+  "type": "module",
   "scripts": {
     "test": "node test.js -p 9092"
   },

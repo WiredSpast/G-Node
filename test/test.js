@@ -15,12 +15,8 @@ ext.run();
 ext.interceptByNameOrHash(HDirection.TOCLIENT, 'NavigatorSearchResultBlocks', onNavigatorSearchResultBlocks)
 
 function onNavigatorSearchResultBlocks(message) {
-    message.blocked = true;
     let result = new HNavigatorSearchResult(message.getPacket());
     console.log(result);
     console.log(result.blocks);
-    let packet = new HPacket(message.getPacket().headerId());
-    result.appendToPacket(packet);
-    ext.sendToClient(packet);
 }
 

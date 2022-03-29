@@ -26,6 +26,9 @@ export { HFacing } from "./lib/extension/parsers/hfacing";
 export { HUserProfile } from "./lib/extension/parsers/huserprofile";
 export { HFriend } from "./lib/extension/parsers/hfriend";
 export { HRelationshipStatus } from "./lib/extension/parsers/hrelationshipstatus";
+export { HNavigatorSearchResult } from "./lib/extension/parsers/navigator/hnavigatorsearchresult";
+export { HNavigatorBlock } from "./lib/extension/parsers/navigator/hnavigatorblock";
+export { HNavigatorRoom } from "./lib/extension/parsers/navigator/hnavigatorroom";
 
 // Tools
 export { GAsync } from "./lib/extension/tools/gasync/gasync";

@@ -17,6 +17,11 @@ ext.interceptByNameOrHash(HDirection.TOCLIENT, 'NavigatorSearchResultBlocks', on
 function onNavigatorSearchResultBlocks(message) {
     let result = new HNavigatorSearchResult(message.getPacket());
     console.log(result);
-    console.log(result.blocks);
+    for (let block of result.blocks) {
+        console.log(block);
+        for (let room of block.rooms) {
+            console.log(room);
+        }
+    }
 }
 

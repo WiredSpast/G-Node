@@ -30,3 +30,4 @@ export { HRelationshipStatus } from "./lib/extension/parsers/hrelationshipstatus
 // Tools
 export { GAsync } from "./lib/extension/tools/gasync/gasync.js";
 export { AwaitingPacket } from "./lib/extension/tools/gasync/awaitingpacket.js";
+export { GHeightMap } from "./lib/extension/tools/groom/gheightmap.js";

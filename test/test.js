@@ -1,5 +1,6 @@
-import { Extension, HDirection, HFloorItem, HWallItem} from '../index.js';
+import { Extension, GHeightMap, HDirection, HFloorItem, HPacket, HWallItem } from '../index.js';
 import { readFile } from 'fs/promises';
+import { HNavigatorSearchResult } from "../lib/extension/parsers/navigator/hnavigatorsearchresult.js";
 
 const extensionInfo = JSON.parse(
     await readFile(
@@ -10,16 +11,16 @@ const extensionInfo = JSON.parse(
 const ext = new Extension(extensionInfo);
 ext.run();
 
-ext.interceptByNameOrHash(HDirection.TOCLIENT, 'Items', hMessage => {
-    console.log('abc');
-    let items = HWallItem.parse(hMessage.getPacket());
-    hMessage.blocked = true;
-    console.log(items.length);
-    let packet = HWallItem.constructPacket(items, hMessage.getPacket().headerId());
-    ext.sendToClient(packet);
-});
 
-ext.on('hostinfoupdate', hostInfo => {
-    console.log(hostInfo);
-    ext.writeToConsole('abc');
-});
+ext.interceptByNameOrHash(HDirection.TOCLIENT, 'NavigatorSearchResultBlocks', onNavigatorSearchResultBlocks)
+
+function onNavigatorSearchResultBlocks(message) {
+    message.blocked = true;
+    let result = new HNavigatorSearchResult(message.getPacket());
+    console.log(result);
+    console.log(result.blocks);
+    let packet = new HPacket(message.getPacket().headerId());
+    result.appendToPacket(packet);
+    ext.sendToClient(packet);
+}
+

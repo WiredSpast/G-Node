@@ -3,7 +3,7 @@ import { HPacket } from "../../../protocol/hpacket";
 export class HNavigatorRoom {
     constructor(packet: HPacket);
 
-    // appendToPacket(packet: HPacket): void;
+    appendToPacket(packet: HPacket): void;
 
     get flatId(): number;
     set flatId(val: number);

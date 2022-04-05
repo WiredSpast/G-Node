@@ -4,7 +4,7 @@ import { HNavigatorBlock } from "./hnavigatorblock";
 export class HNavigatorSearchResult {
     constructor(packet: HPacket);
 
-    // appendToPacket(packet: HPacket): void;
+    appendToPacket(packet: HPacket): void;
 
     get searchCode(): string;
 

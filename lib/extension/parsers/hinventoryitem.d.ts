@@ -1,6 +1,6 @@
 import { HPacket } from "../../protocol/hpacket";
-import { HFurniType } from "./hfurnitype";
 import { HSpecialType } from "./hspecialtype";
+import { HProductType } from "./hproducttype";
 
 export class HInventoryItem {
     constructor(packet: HPacket);
@@ -38,13 +38,13 @@ export class HInventoryItem {
     /**
      * Get furnitype (WALL or FLOOR) of inventory item
      */
-    get furniType(): HFurniType;
+    get furniType(): HProductType;
 
     /**
      * Set furnitype (WALL or FLOOR) of inventory item
      * @param val Value to be set
      */
-    set furniType(val: HFurniType);
+    set furniType(val: HProductType);
 
     /**
      * Get id of inventory item

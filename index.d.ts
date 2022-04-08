@@ -12,7 +12,7 @@ export { HFloorItem } from "./lib/extension/parsers/hflooritem";
 export { HStuff } from "./lib/extension/parsers/hstuff";
 export { HWallItem } from "./lib/extension/parsers/hwallitem";
 export { HInventoryItem } from "./lib/extension/parsers/hinventoryitem";
-export { HFurniType } from "./lib/extension/parsers/hfurnitype";
+export { HProductType } from "./lib/extension/parsers/hproducttype";
 export { HEntity } from "./lib/extension/parsers/hentity";
 export { HEntityUpdate } from "./lib/extension/parsers/hentityupdate";
 export { HEntityType } from "./lib/extension/parsers/hentitytype";

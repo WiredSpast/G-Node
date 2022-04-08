@@ -1,9 +1,9 @@
-import { Extension, GHeightMap } from '../index.js';
+import { Extension, GHeightMap } from '../../index.js';
 import { readFile } from 'fs/promises';
 
 const extensionInfo = JSON.parse(
     await readFile(
-        new URL('./package.json', import.meta.url)
+        new URL('../../package.json', import.meta.url)
     )
 );
 

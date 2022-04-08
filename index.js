@@ -12,7 +12,7 @@ export { HFloorItem } from "./lib/extension/parsers/hflooritem.js";
 export { HStuff } from "./lib/extension/parsers/hstuff.js";
 export { HWallItem } from "./lib/extension/parsers/hwallitem.js";
 export { HInventoryItem } from "./lib/extension/parsers/hinventoryitem.js";
-export { HFurniType } from "./lib/extension/parsers/hfurnitype.js";
+export { HProductType } from "./lib/extension/parsers/hproducttype.js";
 export { HEntity } from "./lib/extension/parsers/hentity.js";
 export { HEntityUpdate } from "./lib/extension/parsers/hentityupdate.js";
 export { HEntityType } from "./lib/extension/parsers/hentitytype.js";

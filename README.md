@@ -23,10 +23,15 @@ $ node extension.js -p 9092
 
 ## Example
 ```js
-const { Extension, HPacket, HDirection } = require('gnode-api');
+import { Extension, HPacket, HDirection } from 'gnode-api';
 
 // Use package.json as extensionInfo or create an object including 'name', 'description', 'version' and 'author'
-let extensionInfo = require('./package.json');
+import { readFile } from 'fs/promises';
+const extensionInfo = JSON.parse(
+    await readFile(
+        new URL('./package.json', import.meta.url)
+    )
+);
 
 // Create new extension with extensionInfo
 let ext = new Extension(extensionInfo);

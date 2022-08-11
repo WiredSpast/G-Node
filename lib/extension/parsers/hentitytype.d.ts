@@ -1,4 +1,6 @@
 export enum HEntityType {
-    FLOOR = 'S',
-    WALL = 'I'
+    HABBO = 1,
+    PET,
+    OLD_BOT,
+    BOT
 }

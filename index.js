@@ -29,7 +29,9 @@ export { HRelationshipStatus } from "./lib/extension/parsers/hrelationshipstatus
 export { HNavigatorSearchResult } from "./lib/extension/parsers/navigator/hnavigatorsearchresult.js";
 export { HNavigatorBlock } from "./lib/extension/parsers/navigator/hnavigatorblock.js";
 export { HNavigatorRoom } from "./lib/extension/parsers/navigator/hnavigatorroom.js";
+
 // Tools
 export { GAsync } from "./lib/extension/tools/gasync/gasync.js";
 export { AwaitingPacket } from "./lib/extension/tools/gasync/awaitingpacket.js";
 export { GHeightMap } from "./lib/extension/tools/groom/gheightmap.js";
+export { GInventory } from "./lib/extension/tools/ginventory.js";

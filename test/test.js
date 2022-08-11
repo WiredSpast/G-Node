@@ -1,4 +1,4 @@
-import { Extension, GHeightMap } from '../index.js';
+import { Extension, GInventory, HDirection } from '../index.js';
 import { readFile } from 'fs/promises';
 
 const extensionInfo = JSON.parse(
@@ -10,6 +10,4 @@ const extensionInfo = JSON.parse(
 const ext = new Extension(extensionInfo);
 ext.run();
 
-new GHeightMap(ext).changeListener = heightMap => {
-    console.log(heightMap.tiles);
-};
+//new GInventory(ext, (items) => console.log(items));

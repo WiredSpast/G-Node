@@ -29,6 +29,10 @@ export { HRelationshipStatus } from "./lib/extension/parsers/hrelationshipstatus
 export { HNavigatorSearchResult } from "./lib/extension/parsers/navigator/hnavigatorsearchresult.js";
 export { HNavigatorBlock } from "./lib/extension/parsers/navigator/hnavigatorblock.js";
 export { HNavigatorRoom } from "./lib/extension/parsers/navigator/hnavigatorroom.js";
+export { HRoomResult } from "./lib/extension/parsers/room/hroomresult.js";
+export { HRoomModSettings } from './lib/extension/parsers/room/hroommodsettings.js';
+export { HRoomChatSettings } from './lib/extension/parsers/room/hroomchatsettings.js';
+
 
 // Tools
 export { GAsync } from "./lib/extension/tools/gasync/gasync.js";

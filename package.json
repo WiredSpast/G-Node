@@ -1,6 +1,6 @@
 {
   "name": "gnode-api",
-  "version": "0.2.4",
+  "version": "0.2.7",
   "description": "Node.js G-Earth extension API",
   "main": "index.js",
   "type": "module",

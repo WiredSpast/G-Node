@@ -3,6 +3,7 @@ import { HPacket } from "../../../protocol/hpacket";
 
 export class AwaitingPacket {
     constructor(headerName: string, direction: HDirection, maxWaitingTimeMillis: number);
+    constructor(headerName: string, direction: HDirection, maxWaitingTimeMillis: number, setBlocked: boolean);
 
     /**
      * Set minimum waiting time (wait this time even if the packet was already intercepted)

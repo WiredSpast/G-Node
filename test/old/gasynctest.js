@@ -1,16 +1,11 @@
 import { Extension, HDirection, HEntityUpdate, GAsync, AwaitingPacket } from '../../index.js';
-import { readFile } from 'fs/promises';
+import { readFileSync } from 'fs';
 
-const extensionInfo = JSON.parse(
-    await readFile(
-        new URL('../../package.json', import.meta.url)
-    )
-);
+const extensionInfo = JSON.parse(readFileSync('../../package.json', 'utf8'));
 
 const ext = new Extension(extensionInfo);
 const gAsync = new GAsync(ext);
 ext.run();
-
 
 ext.interceptByNameOrHash(HDirection.TOSERVER, "MoveAvatar", async hMessage => {
     let packet = hMessage.getPacket();
@@ -31,4 +26,13 @@ ext.interceptByNameOrHash(HDirection.TOSERVER, "MoveAvatar", async hMessage => {
         );
 
     console.log(awaitedPacket);
+});
+
+ext.interceptByNameOrHash(HDirection.TOSERVER, "Chat", async hMessage => {
+  if (hMessage.getPacket().readString().toLowerCase().startsWith(":selecttile")) {
+    hMessage.blocked = true;
+    let awaitedPacket = await gAsync.awaitPacket(new AwaitingPacket("MoveAvatar", HDirection.TOSERVER, 30000, true));
+
+    console.log(awaitedPacket);
+  }
 });

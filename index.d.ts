@@ -38,3 +38,5 @@ export { GAsync } from "./lib/extension/tools/gasync/gasync";
 export { AwaitingPacket } from "./lib/extension/tools/gasync/awaitingpacket";
 export { GHeightMap } from "./lib/extension/tools/groom/gheightmap";
 export { GHeightMapTile } from "./lib/extension/tools/groom/gheightmaptile";
+export { Hotel } from "./lib/extension/tools/furnidata/hotel";
+export { FurniDataUtils, FurniData, FloorItemData, WallItemData } from "./lib/extension/tools/furnidata/furnidata";

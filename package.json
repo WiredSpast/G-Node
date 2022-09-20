@@ -1,6 +1,6 @@
 {
   "name": "gnode-api",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "description": "Node.js G-Earth extension API",
   "main": "index.js",
   "type": "module",
@@ -15,7 +15,8 @@
   "author": "WiredSpast",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^16.4.13"
+    "@types/node": "^16.4.13",
+    "node-fetch": "^3.2.10"
   },
   "directories": {
     "lib": "lib"

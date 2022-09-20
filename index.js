@@ -39,3 +39,5 @@ export { GAsync } from "./lib/extension/tools/gasync/gasync.js";
 export { AwaitingPacket } from "./lib/extension/tools/gasync/awaitingpacket.js";
 export { GHeightMap } from "./lib/extension/tools/groom/gheightmap.js";
 export { GInventory } from "./lib/extension/tools/ginventory.js";
+export { Hotel } from "./lib/extension/tools/furnidata/hotel.js";
+export { FurniDataUtils } from "./lib/extension/tools/furnidata/furnidata.js";

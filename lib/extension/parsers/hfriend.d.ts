@@ -4,6 +4,7 @@ import { HRelationshipStatus } from "./hrelationshipstatus";
 
 export class HFriend {
     constructor(packet: HPacket);
+    constructor(packet: HPacket, categories: Map<number, string>);
 
     /**
      * Parse all friends from fragment packet

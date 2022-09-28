@@ -2,10 +2,10 @@
   "name": "test-extension",
   "version": "0.0.1",
   "description": "Node.js G-Earth extension test",
-  "main": "test.js",
+  "main": "",
   "type": "module",
   "scripts": {
-    "test": "node test.js -p 9092"
+    "test": "node  -p 9092"
   },
   "keywords": [],
   "author": "",

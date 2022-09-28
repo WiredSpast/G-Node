@@ -14,7 +14,7 @@ export type FurniData = {
 };
 
 export namespace FurniDataUtils {
-  export function fetch(hotel: Hotel): FurniData;
+  export function fetch(hotel: Hotel): Promise<FurniData>;
 }
 
 export type WallItemData = {

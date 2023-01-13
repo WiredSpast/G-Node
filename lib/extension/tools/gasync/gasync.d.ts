@@ -10,13 +10,13 @@ export class GAsync {
      * Asynchronously await a packet
      * @param packets
      */
-    awaitPacket(...packets: AwaitingPacket[]): HPacket | undefined;
+    awaitPacket(...packets: AwaitingPacket[]): Promise<HPacket | undefined>;
 
     /**
      * Asynchronously await multiple packets
      * @param packets
      */
-    awaitMultiplePackets(...packets: AwaitingPacket[]): (HPacket | undefined)[];
+    awaitMultiplePackets(...packets: AwaitingPacket[]): Promise<(HPacket | undefined)[]>;
 
     /**
      * Clear all awaiting packets

@@ -8,6 +8,7 @@ import { HostInfo } from "../misc/hostinfo";
 
 export class Extension {
     constructor(extensionInfo: ExtensionInfo);
+    constructor(extensionInfo: ExtensionInfo, args: string[]);
 
     /**
      * Start connection with G-Earth

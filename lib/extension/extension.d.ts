@@ -5,6 +5,7 @@ import { ExtensionInfo } from './extensioninfo';
 import { HClient } from '../protocol/hclient';
 import { PacketInfoManager } from '../services/packetinfo/packetinfomanager';
 import { HostInfo } from '../misc/hostinfo';
+import { LoggerColorClass } from '../misc/loggercolorclass';
 
 export class Extension {
   constructor(extensionInfo: ExtensionInfo);
@@ -22,6 +23,13 @@ export class Extension {
   sendToClient(packet: HPacket): boolean;
   
   /**
+   * Send a message to the client
+   * @param packetStr string representation of the packet
+   * @return success or failure
+   */
+  sendToClient(packetStr: string): boolean;
+  
+  /**
    * Send a message to the server
    * @param packet packet to be sent
    * @return success or failure
@@ -29,12 +37,19 @@ export class Extension {
   sendToServer(packet: HPacket): boolean;
   
   /**
+   * Send a message to the server
+   * @param packetStr string representation of the packet
+   * @return success or failure
+   */
+  sendToServer(packetStr: string): boolean;
+  
+  /**
    * Register a listener on a specific packet type by name or hash
    * @param direction ToClient or ToServer
    * @param headerNameOrHash The packet name or hash
    * @param messageListener The callback
    */
-  interceptByNameOrHash(direction: HDirection, headerNameOrHash: string, messageListener: (hMessage: HMessage) => void): void;
+  intercept(direction: HDirection, headerNameOrHash: string, messageListener: (hMessage: HMessage) => void): void;
   
   /**
    * Register a listener on a specific packet type by header ID
@@ -42,7 +57,7 @@ export class Extension {
    * @param headerId The packet header ID
    * @param messageListener The callback
    */
-  interceptByHeaderId(direction: HDirection, headerId: number, messageListener: (hMessage: HMessage) => void): void;
+  intercept(direction: HDirection, headerId: number, messageListener: (hMessage: HMessage) => void): void;
   
   /**
    * Register a listener on a all packet types
@@ -62,9 +77,9 @@ export class Extension {
   /**
    * Write to the console in G-Earth
    * @param s The text to be written
-   * @param colorClass Optional color of the text to be written (default: "black")
+   * @param colorClass Optional color of the text to be written (default: "black" or "white", depending on theme)
    */
-  writeToConsole(s: string, colorClass?: string): void;
+  writeToConsole(s: string, colorClass?: LoggerColorClass): void;
   
   /**
    * Listen for extension initialization
@@ -117,12 +132,16 @@ export class Extension {
   
   /**
    * Get the packet info manager
+   *
+   * @readonly
    */
-  getPacketInfoManager(): PacketInfoManager | undefined;
+  get packetInfoManager(): PacketInfoManager | undefined;
   
   /**
    * Get the CURRENT host info (use the hostinfoupdate listener to always have the host info up to date)
+   *
+   * @readonly
    */
-  getHostInfo(): HostInfo | undefined;
+  get hostInfo(): HostInfo | undefined;
   
 }

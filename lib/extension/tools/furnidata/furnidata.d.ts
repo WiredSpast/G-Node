@@ -7,6 +7,7 @@ export type FurniData = {
   wallitemtypes: {
     furnitype: WallItemData[]
   },
+  
   getFloorItemByTypeId(id: number): FloorItemData,
   getWallItemByTypeId(id: number): WallItemData,
   getFloorItemByClassName(classname: string): FloorItemData,

@@ -1,3 +1,5 @@
+process.traceDeprecation = true;
+
 // Base
 export { HPacket } from "./lib/protocol/hpacket.js";
 export { HDirection } from "./lib/protocol/hdirection.js";

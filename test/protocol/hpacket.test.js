@@ -20,6 +20,5 @@ QUnit.test('Construct from byte array', assert => {
   assert.equal(packet.EOF, 1);
   
   assert.equal(packet.identifier, undefined);
-  
   assert.equal(packet.identifierDirection, undefined);
 });

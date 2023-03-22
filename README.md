@@ -128,22 +128,22 @@ let bubble = vars[3];
 #### Creating packet from identifier (name or hash) and direction
 ```js
 let hPacket = new HPacket('Chat', HDirection.TOCLIENT); // Example: {in:Chat}
-hPacket.appendInteger(1);       // {in:Chat}{i:1}
+hPacket.appendInt(1);       // {in:Chat}{i:1}
 hPacket.appendString('Hello');  // {in:Chat}{i:1}{s:"Hello"}
-hPacket.appendInteger(0);       // {in:Chat}{i:1}{s:"Hello"}{i:0}
-hPacket.appendInteger(1);       // {in:Chat}{i:1}{s:"Hello"}{i:0}{i:1}
-hPacket.appendInteger(0);       // {in:Chat}{i:1}{s:"Hello"}{i:0}{i:1}{i:0}
-hPacket.appendInteger(0);       // {in:Chat}{i:1}{s:"Hello"}{i:0}{i:1}{i:0}{i:0}
+hPacket.appendInt(0);       // {in:Chat}{i:1}{s:"Hello"}{i:0}
+hPacket.appendInt(1);       // {in:Chat}{i:1}{s:"Hello"}{i:0}{i:1}
+hPacket.appendInt0);       // {in:Chat}{i:1}{s:"Hello"}{i:0}{i:1}{i:0}
+hPacket.appendInt(0);       // {in:Chat}{i:1}{s:"Hello"}{i:0}{i:1}{i:0}{i:0}
 ```
 #### Creating packet from header Id
 ```js
 let hPacket = new HPacket(1918) // Example: {l}{h:1918}
-    .appendInteger(1)       // {l}{h:1918}{i:1}
+    .appendInt(1)       // {l}{h:1918}{i:1}
     .appendString('Hello')  // {l}{h:1918}{i:1}{s:"Hello"}
-    .appendInteger(0)       // {l}{h:1918}{i:1}{s:"Hello"}{i:0}
-    .appendInteger(1)       // {l}{h:1918}{i:1}{s:"Hello"}{i:0}{i:1}
-    .appendInteger(0)       // {l}{h:1918}{i:1}{s:"Hello"}{i:0}{i:1}{i:0}
-    .appendInteger(0);      // {l}{h:1918}{i:1}{s:"Hello"}{i:0}{i:1}{i:0}{i:0}
+    .appendInt(0)       // {l}{h:1918}{i:1}{s:"Hello"}{i:0}
+    .appendInt(1)       // {l}{h:1918}{i:1}{s:"Hello"}{i:0}{i:1}
+    .appendInt(0)       // {l}{h:1918}{i:1}{s:"Hello"}{i:0}{i:1}{i:0}
+    .appendInt(0);      // {l}{h:1918}{i:1}{s:"Hello"}{i:0}{i:1}{i:0}{i:0}
 ```
 #### Creating packet from packet expression
 ```js

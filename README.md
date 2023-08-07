@@ -1,6 +1,6 @@
 # G-Node
 Node.js [G-Earth](https://github.com/sirjonasxx/G-Earth) extension API <br>
-Requires Node.js V15.0.0+
+Requires Node.js V15.0.0+ <br>
 Docs: https://wiredspast.github.io/G-Node/modules.html
 
 ## How to install

@@ -133,7 +133,7 @@ hPacket.appendInt(1);       // {in:Chat}{i:1}
 hPacket.appendString('Hello');  // {in:Chat}{i:1}{s:"Hello"}
 hPacket.appendInt(0);       // {in:Chat}{i:1}{s:"Hello"}{i:0}
 hPacket.appendInt(1);       // {in:Chat}{i:1}{s:"Hello"}{i:0}{i:1}
-hPacket.appendInt0);       // {in:Chat}{i:1}{s:"Hello"}{i:0}{i:1}{i:0}
+hPacket.appendInt(0);       // {in:Chat}{i:1}{s:"Hello"}{i:0}{i:1}{i:0}
 hPacket.appendInt(0);       // {in:Chat}{i:1}{s:"Hello"}{i:0}{i:1}{i:0}{i:0}
 ```
 #### Creating packet from header Id

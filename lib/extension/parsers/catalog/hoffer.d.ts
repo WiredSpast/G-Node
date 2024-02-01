@@ -25,6 +25,9 @@ export class HOffer {
     get activityPointType(): HActivityPoint;
     set activityPointType(val: HActivityPoint);
 
+    get priceInSilver(): number;
+    set priceInSilver(val: number);
+
     get isGiftable(): boolean;
     set isGiftable(val: boolean);
 

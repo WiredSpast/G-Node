@@ -1,9 +1,9 @@
-import {HPacket} from "../protocol/hpacket";
-import {HDirection} from "../protocol/hdirection";
-import {HMessage} from "../protocol/hmessage";
-import {ExtensionInfo} from "./extensioninfo";
-import {HClient} from "../protocol/hclient";
-import {PacketInfoManager} from "../services/packetinfo/packetinfomanager";
+import { HPacket } from "../protocol/hpacket";
+import { HDirection } from "../protocol/hdirection";
+import { HMessage } from "../protocol/hmessage";
+import { ExtensionInfo } from "./extensioninfo";
+import { HClient } from "../protocol/hclient";
+import { PacketInfoManager } from "../services/packetinfo/packetinfomanager";
 import { HostInfo } from "../misc/hostinfo";
 
 export class Extension {
@@ -28,6 +28,14 @@ export class Extension {
      * @return success or failure
      */
     sendToServer(packet: HPacket): boolean;
+
+    /**
+     * Register a listener on a specific packet type by header ID, name or hash
+     * @param direction ToClient or ToServer
+     * @param headerNameOrHash The packet header ID, name or hash
+     * @param messageListener The callback
+    */
+    intercept(direction: HDirection, headerIdOrNameOrHash: string | number, messageListener: (hMessage: HMessage) => void): void;
 
     /**
      * Register a listener on a specific packet type by name or hash

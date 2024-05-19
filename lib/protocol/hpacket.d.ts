@@ -1,6 +1,31 @@
 import { HDirection } from "./hdirection";
 import { PacketInfoManager } from "../services/packetinfo/packetinfomanager";
 
+type PacketValue = {
+    b: number;
+    i: number;
+    s: number;
+    u: number;
+    l: bigint;
+    d: number;
+    f: number;
+    B: boolean;
+    S: string;
+};
+
+/*
+* This type is used to get the values of the packet in the order of the structure
+* Example:
+* packet.read('bS') -> [number, string]
+* packet.read('bSf') -> [number, string, number]
+* packet.read('bSfB') -> [number, string, number, boolean]
+*/
+type PacketValueTuple<T extends string, U extends unknown[] = []> = T extends `${infer First}${infer Rest}`
+    ? First extends keyof PacketValue
+    ? PacketValueTuple<Rest, [...U, PacketValue[First]]>
+    : U
+    : U;
+
 export class HPacket {
     constructor(bytes: Uint8Array);
     constructor(packet: HPacket);
@@ -163,7 +188,7 @@ export class HPacket {
      * S: string
      * @param structure Structure string to read
      */
-    read(structure: string): any[];
+    read<T extends string>(structure: T): PacketValueTuple<T>
 
     /**
      * Replace boolean by value
@@ -455,7 +480,7 @@ export class HPacket {
      * @param objects Array of objects to insert
      * @param structure String of objects structure
      */
-    insert(index:number, structure: string, ...objects: any[]): this;
+    insert(index: number, structure: string, ...objects: any[]): this;
 
 
     /**

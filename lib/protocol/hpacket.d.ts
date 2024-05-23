@@ -1,5 +1,6 @@
 import { HDirection } from "./hdirection";
 import { PacketInfoManager } from "../services/packetinfo/packetinfomanager";
+import { IncomingPacket, OutgoingPacket, Packet, PacketDirectionType } from "../types/packets";
 
 type PacketValue = {
     b: number;
@@ -26,13 +27,13 @@ type PacketValueTuple<T extends string, U extends unknown[] = []> = T extends `$
     : U
     : U;
 
-export class HPacket {
+export class HPacket<T extends HDirection> {
     constructor(bytes: Uint8Array);
     constructor(packet: HPacket);
-    constructor(packet: String | string);
+    constructor(packet: Packet);
     constructor(headerId: number);
     constructor(headerId: number, bytes: Uint8Array);
-    constructor(identifier: String | string, direction: HDirection);
+    constructor(identifier: PacketDirectionType<T>, direction: T, ...args: unknown[]);
 
     /**
      * Get the packet as a string

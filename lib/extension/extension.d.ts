@@ -5,6 +5,7 @@ import { ExtensionInfo } from "./extensioninfo";
 import { HClient } from "../protocol/hclient";
 import { PacketInfoManager } from "../services/packetinfo/packetinfomanager";
 import { HostInfo } from "../misc/hostinfo";
+import { IncomingPacket, OutgoingPacket, PacketDirectionType } from "../types/packets";
 
 export class Extension {
     constructor(extensionInfo: ExtensionInfo);
@@ -35,7 +36,7 @@ export class Extension {
      * @param headerNameOrHash The packet header ID, name or hash
      * @param messageListener The callback
     */
-    intercept(direction: HDirection, headerIdOrNameOrHash: string | number, messageListener: (hMessage: HMessage) => void): void;
+    intercept<T extends HDirection>(direction: T, headerIdOrNameOrHash: PacketDirectionType<T> | number, messageListener: (hMessage: HMessage) => void): void;
 
     /**
      * Register a listener on a specific packet type by name or hash
@@ -43,7 +44,7 @@ export class Extension {
      * @param headerNameOrHash The packet name or hash
      * @param messageListener The callback
      */
-    interceptByNameOrHash(direction: HDirection, headerNameOrHash: string | String, messageListener: (hMessage: HMessage) => void): void;
+    interceptByNameOrHash<T extends HDirection>(direction: HDirection, headerNameOrHash: PacketDirectionType<T>, messageListener: (hMessage: HMessage) => void): void;
 
     /**
      * Register a listener on a specific packet type by header ID
